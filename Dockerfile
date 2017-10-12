@@ -1,15 +1,14 @@
-FROM ubuntu:14.04
+FROM nvidia/cuda:8.0-cudnn6-devel
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        g++ \
-        libjpeg-dev \
-        python3-dev \
-        python3-pip \
-        zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
+    python3-dev \
+    python3-pip && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
-RUN ln -s /usr/bin/python3 /usr/local/bin/python \
-    && ln -s /usr/bin/pip3 /usr/local/bin/pip
+RUN ln -s /usr/bin/python3 /usr/local/bin/python && \
+    ln -s /usr/bin/pip3 /usr/local/bin/pip
 
-RUN pip install -U setuptools \
-    && pip install chainer pillow
+RUN pip install --upgrade pip
+RUN pip install setuptools
+RUN pip install cupy==2.0.0rc1 chainer==3.0.0rc1
