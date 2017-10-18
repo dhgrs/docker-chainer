@@ -9,6 +9,6 @@ RUN apt-get update -y && \
 RUN ln -s /usr/bin/python3 /usr/local/bin/python && \
     ln -s /usr/bin/pip3 /usr/local/bin/pip
 
-RUN pip install --upgrade pip
-RUN pip install setuptools
-RUN pip install cupy==2.0.0rc1 chainer==3.0.0rc1
+RUN pip install --upgrade pip==9.0.1 && \
+    pip install setuptools==36.6.0 && \
+    pip install chainer==1.24.0
