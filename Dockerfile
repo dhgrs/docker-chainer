@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn6-devel
+FROM nvidia/cuda:9.0-cudnn7-devel
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -9,6 +9,6 @@ RUN apt-get update -y && \
 RUN ln -s /usr/bin/python3 /usr/local/bin/python && \
     ln -s /usr/bin/pip3 /usr/local/bin/pip
 
-RUN pip install --upgrade pip
-RUN pip install setuptools
-RUN pip install cupy==2.0.0rc1 chainer==3.0.0rc1
+RUN pip install --upgrade pip==9.0.1 && \
+    pip install setuptools==36.6.0 && \
+    pip install cupy==2.0.0 chainer==3.0.0
