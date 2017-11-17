@@ -10,5 +10,5 @@ RUN ln -s /usr/bin/python3 /usr/local/bin/python && \
     ln -s /usr/bin/pip3 /usr/local/bin/pip
 
 RUN pip install --upgrade pip==9.0.1 && \
-    pip install setuptools==36.6.0 && \
-    pip install cupy==2.0.0 chainer==3.0.0
+    pip install setuptools==36.7.2 && \
+    pip install cupy==2.1.0 chainer==3.1.0
